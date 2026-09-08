@@ -50,16 +50,16 @@
       type: "bar",
       data: {
         labels: Object.keys(bySource),
-        datasets: [{ label: "Registros", data: Object.values(bySource), backgroundColor: "#3f6d12" }]
+        datasets: [{ label: "Registros", data: Object.values(bySource), backgroundColor: "#1c2a3d" }]
       },
-      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: "#5f6858" }, grid: { color: "#e4e7df" } }, y: { ticks: { color: "#5f6858" }, grid: { color: "#e4e7df" } } } } }
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: "#6a6256" }, grid: { color: "#d4cbb8" } }, y: { ticks: { color: "#6a6256" }, grid: { color: "#d4cbb8" } } } } }
     });
     destroy("st");
     charts.st = new Chart($("#chart-st"), {
       type: "doughnut",
       data: {
         labels: ["ok", "running", "error"],
-        datasets: [{ data: [s.ok, s.run, s.err], backgroundColor: ["#2d7a38", "#1f6ea3", "#b63d28"] }]
+        datasets: [{ data: [s.ok, s.run, s.err], backgroundColor: ["#3d6b4f", "#3d5a73", "#8c3d32"] }]
       },
       options: { responsive: true, maintainAspectRatio: false }
     });
