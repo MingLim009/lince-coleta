@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LINCE — Coleta e análise de dados da web</title>
+  <meta name="description" content="Plataforma fullstack para web scraping autorizado: filas, schema, armazenamento e console de operação.">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="landing">
+  <header class="top">
+    <a class="mark" href="index.html"><span class="eye"></span>LINCE</a>
+    <div>
+      <a class="btn btn-line" href="entrar.html">Entrar</a>
+      <a class="btn btn-acid" href="entrar.html">Abrir console</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="kicker">Coleta fullstack</div>
+      <h1>Raspar, estruturar e guardar. Sem planilha solta.</h1>
+      <p class="muted">LINCE é a camada de operação para scraping: fontes autorizadas, workers com rate-limit, schema por dataset e uma UI para gerir o que já entrou.</p>
+      <p>
+        <a class="btn btn-acid" href="entrar.html">Ver console demo</a>
+        <a class="btn btn-line" href="#como">Como funciona</a>
+      </p>
+    </div>
+    <aside class="preview">
+      <div class="kicker">dataset · mercado café</div>
+      <table>
+        <thead><tr><th>SKU</th><th>Produto</th><th>Origem</th><th>Preço</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">CF-01</td><td>Bourbon Amarelo</td><td>Sul de Minas</td><td>64,90</td></tr>
+          <tr><td class="mono">CF-02</td><td>Catuaí Vermelho</td><td>Cerrado</td><td>58,20</td></tr>
+          <tr><td class="mono">CF-03</td><td>Geisha Lavado</td><td>Chapada</td><td>142,00</td></tr>
+          <tr><td class="mono">CF-04</td><td>Arábica Natural</td><td>Mogiana</td><td>51,50</td></tr>
+        </tbody>
+      </table>
+    </aside>
+  </section>
+
+  <section class="feats" id="como">
+    <article class="feat">
+      <div class="kicker">Backend</div>
+      <h3>Fila + workers</h3>
+      <p class="muted">Jobs com status, retries e respeito a robots.txt. Em produção: Python/Node, Redis e Postgres.</p>
+    </article>
+    <article class="feat">
+      <div class="kicker">Schema</div>
+      <h3>Dado já tipado</h3>
+      <p class="muted">Cada fonte declara colunas. O parser só grava se o registro fechar o contrato.</p>
+    </article>
+    <article class="feat">
+      <div class="kicker">Console</div>
+      <h3>Operação visível</h3>
+      <p class="muted">Fontes, logs, gráficos e export CSV para análise posterior.</p>
+    </article>
+  </section>
+</body>
+</html>

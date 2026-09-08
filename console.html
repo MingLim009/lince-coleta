@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Console — LINCE</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="side">
+      <a class="mark" href="index.html" style="margin:0 12px 18px"><span class="eye"></span>LINCE</a>
+      <button class="link on" data-go="dash" type="button">Dashboard</button>
+      <button class="link" data-go="fontes" type="button">Fontes</button>
+      <button class="link" data-go="jobs" type="button">Jobs</button>
+      <button class="link" data-go="dados" type="button">Dataset</button>
+      <button class="link" data-go="logs" type="button">Logs</button>
+      <button class="link" id="logout" type="button">Sair</button>
+      <p class="muted" style="padding:16px 12px 0" id="who"></p>
+    </aside>
+
+    <main class="main">
+      <section data-view="dash">
+        <div class="head"><h2>Operação</h2><button class="btn btn-line btn-sm" id="reset" type="button">Reset demo</button></div>
+        <div class="kpis">
+          <div class="kpi"><span class="muted">Registros</span><b id="k-rec">0</b></div>
+          <div class="kpi"><span class="muted">Fontes ativas</span><b id="k-src">0</b></div>
+          <div class="kpi"><span class="muted">Sucesso</span><b id="k-ok">0%</b></div>
+          <div class="kpi"><span class="muted">Rodando</span><b id="k-run">0</b></div>
+        </div>
+        <div class="charts" style="margin:16px 0">
+          <div class="chart-box"><canvas id="chart-vol"></canvas></div>
+          <div class="chart-box"><canvas id="chart-st"></canvas></div>
+        </div>
+        <div class="card">
+          <h3>Últimos jobs</h3>
+          <table class="data"><thead><tr><th>ID</th><th>Fonte</th><th>Status</th><th>Linhas</th><th>Início</th><th>Nota</th></tr></thead><tbody id="job-mini"></tbody></table>
+        </div>
+        <div class="card"><h3>Log</h3><div id="log-mini"></div></div>
+      </section>
+
+      <section class="hidden" data-view="fontes">
+        <div class="head"><h2>Fontes</h2></div>
+        <form class="card" id="src-form">
+          <div class="row">
+            <label class="field">Nome<input id="f-name" required></label>
+            <label class="field">URL autorizada<input id="f-url" required placeholder="https://"></label>
+            <label class="field">Tipo
+              <select id="f-type">
+                <option value="e-commerce">e-commerce</option>
+                <option value="listagem">listagem</option>
+                <option value="série temporal">série temporal</option>
+                <option value="eventos">eventos</option>
+              </select>
+            </label>
+            <label class="field">Intervalo<input id="f-int" value="6h"></label>
+          </div>
+          <label class="field">Schema (colunas, vírgula)<input id="f-schema" value="campo1, campo2, campo3"></label>
+          <button class="btn btn-acid" type="submit">Cadastrar fonte</button>
+        </form>
+        <div class="card">
+          <table class="data">
+            <thead><tr><th>Fonte</th><th>Tipo</th><th>Schema</th><th>Cron</th><th>Estado</th><th></th></tr></thead>
+            <tbody id="src-table"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="hidden" data-view="jobs">
+        <div class="head"><h2>Fila de jobs</h2></div>
+        <div class="card">
+          <table class="data">
+            <thead><tr><th>ID</th><th>Fonte</th><th>Status</th><th>Linhas</th><th>Início</th><th>Nota</th></tr></thead>
+            <tbody id="job-table"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="hidden" data-view="dados">
+        <div class="head">
+          <div>
+            <h2>Dataset</h2>
+            <p class="muted" id="data-count"></p>
+          </div>
+          <div>
+            <select id="data-src"></select>
+            <button class="btn btn-acid" id="export" type="button">Exportar CSV</button>
+          </div>
+        </div>
+        <div class="card" style="overflow:auto">
+          <table class="data">
+            <thead id="data-head"></thead>
+            <tbody id="data-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="hidden" data-view="logs">
+        <div class="head"><h2>Logs</h2></div>
+        <div class="card" id="logs"></div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
